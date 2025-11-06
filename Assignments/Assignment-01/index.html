@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Memories</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js" defer></script>
+</head>
+
+<body>
+    <h1>✈️Travel Memories</h1>
+    <p class="intro">Welcome! Here you can upload photos from your travels, add a description, select the country, and
+        create your own travel memory cards.</p>
+    <div class="toolbar">
+        <input type="file" id="upload-photo" accept="image/*" />
+        <input type="text" id="photo-desc" placeholder="Write a description ..." />
+        <select id="country">
+            <option value="" selected disabled>Choose a country</option>
+            <option value="Italy">Italy</option>
+            <option value="France">France</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Germany">Germany</option>
+            <option value="Spain">Spain</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" id="other-country" placeholder="Write the country" style="display: none;" />
+        <div class="add-btn-wrapper">
+            <button id="add-btn">+</button>
+        </div>
+    </div>
+    <div class="view-bar">
+        <button id="sort-btn">Sort the cards by grid or by list</button>
+        <div class="filter-group">
+            <label for="sort-select">Order:</label>
+            <select id="sort-select">
+                <option value="">--Select--</option>
+                <option value="asc">A → Z</option>
+                <option value="desc">Z → A</option>
+            </select>
+        </div>
+    </div>
+    <div id="board"></div>
+</body>
+
+</html>
