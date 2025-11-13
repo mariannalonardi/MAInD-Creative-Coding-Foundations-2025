@@ -1,4 +1,4 @@
-const MY_API_KEY= '80d1993378fa9e47ffc9c7fec53fe1d2' //'84c9ada0cb568810d25875198a8b8026' MY API 
+const MY_API_KEY= ''
 
 const API_URL = "https://api.openweathermap.org/data/2.5/forecast?lat=45.8701&lon=8.978&units=metric&appid=" + MY_API_KEY
 
