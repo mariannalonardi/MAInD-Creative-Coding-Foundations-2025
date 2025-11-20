@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goose Game</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/script.js" defer></script>
+</head>
+
+<body>
+    <h1>Goose Game</h1>
+    <p id="game-intro">Reach the last tile to win the game!</p>
+    <p id="game-instructions">Roll the dice and use → to move step by step</p>
+    <div id="start-screen">
+        <div id="avatar-select">
+            <p>Select your avatar:</p>
+            <div class="avatar-option" data-avatar="img/Avatar1.png">
+                <img src="assets/img/Avatar1.png" alt="Avatar 1">
+            </div>
+            <div class="avatar-option" data-avatar="img/Avatar2.png">
+                <img src="assets/img/Avatar2.png" alt="Avatar 2">
+            </div>
+            <div class="avatar-option" data-avatar="img/Avatar3.png">
+                <img src="assets/img/Avatar3.png" alt="Avatar 3">
+            </div>
+            <div class="avatar-option" data-avatar="img/Avatar4.png">
+                <img src="assets/img/Avatar4.png" alt="Avatar 4">
+            </div>
+        </div>
+        <div id="start-button">
+            <button id="start-btn">Start game</button>
+        </div>
+    </div>
+    <div id="game" class="hidden">
+        <div id="dice-box">
+            <button id="roll-btn">🎲</button>
+            <p id="dice-result"></p>
+        </div>
+        <div id="game-info">
+            <p>Score: <span id="score">0</span></p>
+            <p>Remaining steps: <span id="steps">0</span></p>
+        </div>
+        <ul id="path"></ul>
+    </div>
+    <div id="popup" class="hidden">
+        <div id="popup-content">
+            <h2 id="popup-text"></h2>
+            <button id="close-popup">Play again</button>
+        </div>
+    </div>
+</body>
+
+</html>
