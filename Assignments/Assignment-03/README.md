@@ -29,6 +29,7 @@ The application **must** have those requirements:
 It's a goose game where the player moves along a path of tiles by rolling a dice. The path includes normal, bonus, and malus tiles. Landing on a bonus tile triggers a trivia quiz question: if answered correctly, the player moves forward one step; if answered incorrectly, the player stays in place. Malus tiles make the player move backward. The goal is to reach the final tile, accumulate points, and complete the path.
 
 ## Block diagram
+![Block diagram](DOCS/Diagram.svg)
 
 ## List function
 - newGame()
