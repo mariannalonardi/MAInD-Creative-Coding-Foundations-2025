@@ -1,0 +1,395 @@
+/* --- reset CSS --- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 15px;
+  margin: 0;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 70px; 
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+/*START SCREEN*/
+#start-screen {
+  width: 100%;
+  max-width: 500px;
+}
+
+#start-screen.hidden { display: none; }
+
+#avatar-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+  width: 100%;
+}
+
+#avatar-select .avatars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 90%;
+  max-width: 400px;
+}
+
+.avatar-option {
+  width: 50px;
+  height: 50px;
+  border: 2px solid #aaa;
+  border-radius: 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.avatar-option img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.avatar-option.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 10px #007bff;
+}
+
+#start-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+#start-btn {
+  display: none; 
+  justify-content: center; 
+  align-items: center;
+  padding: 15px 35px;
+  font-size: 1.4rem; 
+  border-radius: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 25px;
+  width: 90%;
+  max-width: 300px;
+}
+
+#start-btn:hover { background-color: #218838; }
+
+/*GAME SCREEN*/
+#game-screen {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#game-screen.hidden { display: none; }
+
+#top-info {
+  display: flex;
+  flex-direction: column; 
+  align-items: stretch;     
+  width: 100%;
+  padding: 10px;
+  gap: 15px;
+  box-sizing: border-box;
+}
+
+#game-instructions {
+  text-align: left;
+  font-size: 1.2rem;
+  width: 100%; 
+  word-wrap: break-word; 
+}
+
+#controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#dice-result {
+  margin-top: 5px;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+#game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  
+  font-size: 1rem;
+  gap: 5px;
+}
+
+#roll-btn {
+  padding: 15px 30px; 
+  font-size: 1.8em; 
+  border-radius: 50px;
+  background-color: white;
+  color: white;
+  border: 2px solid #007bff;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#roll-btn:hover { background-color: #007bff; }
+
+/*PATH*/
+#path {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 8px;
+  list-style: none;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#path li {
+  background: #007bff;
+  border: 2px solid #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  aspect-ratio: 1;
+  font-size: 0.8rem;
+}
+
+#path li.start { background-color: #ffb84d; }
+#path li.end { background-color: #ffb84d; }
+#path li.bonus { background-color: #28a745; }
+#path li.malus { background-color: #dc3545; }
+
+.player::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: var(--avatar);
+  border-radius: 50%;
+}
+
+/*INSTRUCTIONS SCREEN*/
+#instructions-screen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+#instructions-screen h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+#instructions-screen p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #f3f3f3;
+  text-align: left;
+  max-width: 700px;
+  margin-bottom: 15px;
+}
+
+#instructions-screen button#back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+}
+
+#instructions-screen.hidden { display: none; }
+
+/*POPUP*/
+#popup,
+#popup-win {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+}
+
+#popup.hidden,
+#popup-win.hidden { display: none; }
+
+#popup-inner,
+#popup-content {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  text-align: center;
+  width: 90%;
+  max-width: 450px; 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+}
+
+#popup h3,
+#popup-win h2 { font-size: 1.5rem; margin-bottom: 15px; color: #222; }
+
+#popup p { font-size: 1.1rem; margin-bottom: 20px; font-weight: 500; }
+
+#popup-choices {
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;
+  margin-top: 10px;
+}
+
+#popup-choices button {
+  padding: 15px 10px; 
+  border-radius: 12px;
+  border: 1px solid #007bff;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #007bff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.2;
+}
+
+#close-popup {
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #28a745; 
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 15px;
+}
+
+/*BOTTOM BAR*/
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: linear-gradient(180deg, #ffffff, #f2f6ff);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  z-index: 1500;
+  box-sizing: border-box;
+}
+
+.bar-btn {
+  flex: 1;
+  margin: 0 10px; 
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 2px solid #cfdcff; 
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  background: #e9f2ff;
+  color: #007bff;
+}
+
+.bar-btn:active,
+.bar-btn.active { 
+  background-color: #c0d3ff;
+  border-color: #007bff;
+}
+
+/*MEDIA QUERIES*/
+@media (min-width: 600px) {
+  h1 { font-size: 2.5rem; }
+  .avatar-option { width: 65px; height: 65px; }
+  #start-btn { font-size: 1.6rem; }
+  #game-instructions { font-size: 1.4rem; }
+  #roll-btn { font-size: 2.2em; padding: 15px 35px; }
+  #game-info { font-size: 1.2rem; }
+  #path { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 10px; padding: 20px; }
+  #path li { font-size: 1rem; }
+  #popup-choices { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 15px; }
+  #popup-choices button { flex: 1 1 40%; padding: 15px 15px; }
+  #close-popup { width: auto; max-width: 250px; }
+  .bar-btn { font-size: 1.1rem; padding: 14px 22px; }
+}
+
+@media (min-width: 1020px) {
+  h1 { font-size: 3rem; }
+  .avatar-option { width: 70px; height: 70px; }
+  #start-btn { padding: 20px 50px; font-size: 2rem; }
+  #top-info { margin: 0 auto; padding: 10px 40px; }
+  #game-instructions { font-size: 1.6rem; width: 100%; }
+  #game-info { font-size: 1.4rem; }
+  #roll-btn { font-size: 2.5em; padding: 20px 40px; }
+  #dice-result { font-size: 1.4rem; }
+  #path { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 12px; padding: 30px; }
+  #path li { font-size: 1.2rem; }
+  .bottom-bar { padding: 15px 0; }
+  .bar-btn { font-size: 1.2rem; padding: 16px 25px; }
+}

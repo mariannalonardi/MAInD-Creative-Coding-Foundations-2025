@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goose Game - Trivia Edition</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/script.js" defer></script>
+</head>
+
+<body>
+
+    <section id="start-screen" class="screen">
+        <header>
+            <h1>Goose Game - Trivia Edition</h1>
+        </header>
+
+        <div id="avatar-select">
+            <h2>Choose Your Avatar</h2>
+            <div class="avatars">
+                <div class="avatar-option" data-avatar="img/Avatar1.png">
+                    <img src="assets/img/Avatar1.png" alt="Avatar 1">
+                </div>
+                <div class="avatar-option" data-avatar="img/Avatar2.png">
+                    <img src="assets/img/Avatar2.png" alt="Avatar 2">
+                </div>
+                <div class="avatar-option" data-avatar="img/Avatar3.png">
+                    <img src="assets/img/Avatar3.png" alt="Avatar 3">
+                </div>
+                <div class="avatar-option" data-avatar="img/Avatar4.png">
+                    <img src="assets/img/Avatar4.png" alt="Avatar 4">
+                </div>
+            </div>
+        </div>
+
+        <div id="start-button">
+            <button id="start-btn">Start Game</button>
+        </div>
+    </section>
+
+    <section id="game-screen" class="screen hidden">
+        <div id="top-info">
+            <p id="game-instructions">Roll the dice and move along the path!</p>
+            <div id="controls">
+                <button id="roll-btn">🎲</button>
+            </div>
+            <p id="dice-result"></p>
+            <div id="game-info">
+                <p>Score: <span id="score">0</span></p>
+                <p>Remaining steps: <span id="steps">0</span></p>
+            </div>
+        </div>
+        <ul id="path"></ul>
+    </section>
+
+    <div id="popup-win" class="hidden">
+        <div id="popup-content">
+            <h2 id="popup-txt"></h2>
+            <button id="close-popup">Play again</button>
+        </div>
+    </div>
+
+    <section id="instructions-screen" class="screen hidden">
+        <button id="back-btn" class="back-top">← Back</button>
+
+        <h2>Instructions</h2>
+        <p>
+            Move on the board by rolling the dice.
+            Green tiles are bonuses, red tiles are penalties.
+            Answer trivia questions to advance faster!
+        </p>
+    </section>
+
+    <div id="popup" class="hidden">
+        <div id="popup-inner">
+            <h3 id="popup-title"></h3>
+            <p id="popup-text"></p>
+            <div id="popup-choices"></div>
+        </div>
+    </div>
+
+    <nav class="bottom-bar">
+        <button class="bar-btn" id="btn-instructions">Instructions</button>
+        <button class="bar-btn" id="btn-home">Home</button>
+    </nav>
+
+</body>
+
+</html>
